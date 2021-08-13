@@ -39,6 +39,27 @@ console.log(player.name);
 // player = something : 이 경우에 const 에러가 발생
 player.name = "soobin";
 console.log(player.name);
+console.log(player["name"]);
 
 player.lastname = "kim";
 console.log(player);
+
+//function
+function sayHello(name) {
+    console.log("hello " + name);
+}
+
+sayHello("skim");
+sayHello("soobin");
+
+
+const funcObject = {
+    name: "skim",
+    func: function () {
+        console.log(":)");
+    },
+};
+console.log(funcObject);
+console.log(funcObject.name);
+console.log(funcObject.func);
+funcObject.func();
