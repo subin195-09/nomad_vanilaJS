@@ -1,0 +1,24 @@
+body {
+    background-color: beige;
+}
+
+div {
+    color: cornflowerblue;
+    transition:color 0.5s ease-in-out;
+}
+
+.over {
+    color: thistle;
+}
+
+.clicked {
+    color: rebeccapurple;
+}
+
+.sexy-font {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cute-font {
+    font-family: 'Times New Roman', Times, serif;
+}
