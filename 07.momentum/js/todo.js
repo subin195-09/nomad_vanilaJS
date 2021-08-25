@@ -1,8 +1,10 @@
 const toDoForm = document.getElementById("todo-form");
 const toDoList = document.getElementById("todo-list");
 const toDoInput = toDoForm.querySelector("input");
+let loginUser = localStorage.getItem(USERNAME_KEY);
+let TODOS_KEY = "";
+let getSavedToDos;
 
-const TODOS_KEY = "toDos";
 let toDos = [];
 
 function saveToDos() {
@@ -26,7 +28,7 @@ function paintToDo(newToDo) {
 	li.appendChild(span);
 	li.appendChild(btn);
 	span.innerText = newToDo.text;
-	btn.innerText = "❌";
+	btn.innerText = "✗";
 
 	btn.addEventListener("click", handleDeleteBtn);
 	toDoList.appendChild(li);
@@ -47,13 +49,31 @@ function handleToDoSubmit(event) {
 	 saveToDos();
 }
 
-const getSavedToDos = localStorage.getItem(TODOS_KEY);
-if (getSavedToDos)
-{
-	toDos = JSON.parse(getSavedToDos);
-	toDos.forEach(toDo => {
-		paintToDo(toDo)
-	});
+function activeToDo() {
+	toDoForm.classList.remove(HIDDNE_CLASSNAME);
+	toDoList.classList.remove(HIDDNE_CLASSNAME);
+	loginUser = localStorage.getItem(USERNAME_KEY);
+	TODOS_KEY = "toDos" + loginUser;
+	getSavedToDos = localStorage.getItem(TODOS_KEY);
+	if (getSavedToDos)
+	{
+		toDos = JSON.parse(getSavedToDos);
+		toDos.forEach(toDo => {
+			paintToDo(toDo)
+		});
+	}
+	toDoForm.addEventListener("submit", handleToDoSubmit);
 }
 
-toDoForm.addEventListener("submit", handleToDoSubmit);
+function deactivateToDo() {
+	toDoForm.classList.add(HIDDNE_CLASSNAME);
+	toDoList.classList.add(HIDDNE_CLASSNAME);
+	toDoList.innerHTML = "";
+}
+
+if (loginUser) {
+	activeToDo();
+}
+else {
+	deactivateToDo();
+}

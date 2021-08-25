@@ -1,3 +1,7 @@
+body {
+    color: lightgray;
+}
+
 .hidden {
 	display: none;
 }
@@ -10,4 +14,103 @@ img {
     z-index: -10;
     width: 100%;
     height: 100%;
+    opacity: 80%;
+    filter: brightness(75%);
+}
+
+#clock {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin: 0;
+    padding: 0;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 90px;
+    color: whitesmoke;
+    opacity: 90%;
+}
+
+#login-form, #greeting{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 30px;
+    color: whitesmoke;
+    opacity: 90%;
+}
+
+#greeting button {
+    border: none;
+}
+
+#todo-form{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#todo-list {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#todo-list button {
+    border: none;
+}
+
+#todo-form input::placeholder {
+    size: 1.5em;
+}
+
+button {
+    background: none;
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+    color: whitesmoke;
+    font-weight: bold;
+    position: relative;
+}
+
+button:hover {
+    color: plum;
+    background: whitesmoke;
+}
+
+
+
+input {
+    color: whitesmoke;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid whitesmoke;
+    z-index: 2;
+}
+
+input::placeholder {
+    color: whitesmoke;
+}
+
+#quote {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+#quote span {
+    font-size: 1.1em;
+    display: block;
+    text-align: center;
+}
+
+#quote span:last-child {
+    font-weight: bold;
 }

@@ -8,12 +8,15 @@
 	<title>momentum</title>
 </head>
 <body>
-	<form id="login-form" class="hidden">
+	<form id="login-form" class="hidden" class="login">
 		<input required maxlength="15" type="test" placeholder="what is your name?" />
 		<button>Log In</button>
 	</form>
-	<h2 id="clock">00:00:00</h2>
-	<h1 id="greeting" class="hidden"></h1>
+	<h1 id="clock">00:00:00</h1>
+	<h1 id="greeting" class="hidden" class="login">
+		<span></span>
+		<button>Logout</button>
+	</h1>
 	<form id="todo-form">
 		<input type="text" placeholder="Write a To Do and Press Enter" required />
 	</form>

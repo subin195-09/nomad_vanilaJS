@@ -1,4 +1,4 @@
-const clock = document.querySelector('h2#clock');
+const clock = document.querySelector("#clock");
 
 clock.innerText = "00:00";
 

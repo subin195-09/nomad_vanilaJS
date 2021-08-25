@@ -5,12 +5,9 @@ const loginForm = document.querySelector('#login-form');
 const loginInput = loginForm.querySelector('input');
 const loginButton = loginForm.querySelector('button');
 const greeting = document.querySelector('#greeting');
+const greetingSpan = greeting.querySelector('span');
+const greetingButton = greeting.querySelector('button');
 const savedUsername = localStorage.getItem(USERNAME_KEY);
-
-function paintGreetings(name) {
-	greeting.innerText = `Hello, ${name}!`;
-	greeting.classList.remove(HIDDNE_CLASSNAME);
-}
 
 function onLoginBtnClick() {
 	//console.dir(loginInput);
@@ -23,6 +20,14 @@ function onLoginBtnClick() {
 		console.log("hello", value);
 }
 
+function onLogoutBtnClick() {
+	localStorage.removeItem(USERNAME_KEY);
+	greeting.classList.add(HIDDNE_CLASSNAME);
+	loginForm.classList.remove(HIDDNE_CLASSNAME);
+	loginInput.value = "";
+	deactivateToDo();
+}
+
 function onLoginSubmit(event) {
 	// 브라우저 기본 동작을 막아준다.
 	event.preventDefault();
@@ -30,6 +35,13 @@ function onLoginSubmit(event) {
 	const username = loginInput.value;
 	localStorage.setItem(USERNAME_KEY, username);
 	paintGreetings(username);
+	activeToDo();
+}
+
+function paintGreetings(name) {
+	greetingSpan.innerText = `Hello, ${name}!`;
+	greetingButton.addEventListener("click", onLogoutBtnClick);
+	greeting.classList.remove(HIDDNE_CLASSNAME);
 }
 
 loginButton.addEventListener('click', onLoginBtnClick);
